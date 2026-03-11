@@ -7,7 +7,7 @@ This directory contains code for a CLI application I build to read technical res
 ```bash
 cd simple-rag
 uv sync
-uv run python main.py <doc.pdf>
+uv run python main.py paper.pdf
 ```
 
 Make sure you have a Google Gemini API key.
@@ -82,8 +82,7 @@ Answer:
 
 ## Test Questions
 
-* What is the last date to submit the project?
-* What are the project submission guidelines?
-* What are the project evaluation criteria?
-* What are the python libraries recommended for the project?
-* In brief, explain the training dataset used for this project.
+* Explain the main idea behind this research paper.
+* How difficult is it to implement this using Python?
+* Explain {topic_name} in detail.
+* What implications can {topic} have on the future of technology?
