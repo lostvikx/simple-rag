@@ -1,6 +1,6 @@
 from langchain_ollama import ChatOllama
 
-def prompt_llm(query: str, matches: zip, model_name="qwen3.5:2b") -> str:
+def prompt_llm(query: str, matches: zip, model_name: str = "qwen3.5:2b") -> str:
     """Prompts an Ollama model to answer a query using provided context matches."""
 
     llm = ChatOllama(

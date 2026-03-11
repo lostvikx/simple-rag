@@ -1,10 +1,11 @@
 import json
 import chromadb
-
-from uuid import uuid4
 from langchain_ollama import OllamaEmbeddings
 
-def create_embeddings(chunks:list, model_name:str="nomic-embed-text") -> list[list[float]]:
+def create_embeddings(
+    chunks: list,
+    model_name: str = "nomic-embed-text"
+) -> list[list[float]]:
     """Creates embeddings for the given document chunks using the Ollama API."""
 
     model = OllamaEmbeddings(model=model_name)
@@ -21,9 +22,13 @@ def store_embeddings(embeddings: list, chunks: list, data_dir: str) -> int:
     client = chromadb.PersistentClient(path=data_dir)
     collection = client.get_or_create_collection(name="document_chunks")
 
-    ids = [str(uuid4()) for _ in range(len(chunks))]
+    ids = [
+        f"{chunk.metadata['source']}_page{chunk.metadata['page']}_{i}"
+        for i, chunk in enumerate(chunks)
+    ]
 
-    collection.add(
+    # insert or update the embeddings with metadata
+    collection.upsert(
         ids=ids,
         embeddings=embeddings,
         metadatas=[chunk.metadata for chunk in chunks],

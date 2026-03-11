@@ -1,6 +1,7 @@
 import re
 import fitz
 import json
+from pathlib import Path
 
 def normalize_text(text: str) -> str:
     """Normalizes text by converting to lowercase, expanding contractions, and removing special characters."""
@@ -28,7 +29,7 @@ def normalize_text(text: str) -> str:
     return text
 
 
-def extract_text(pdf_path: str) -> list[dict]:
+def extract_text(pdf_path: str | Path) -> list[dict]:
     """Extracts text from a PDF file and normalizes it."""
 
     doc = fitz.open(pdf_path)

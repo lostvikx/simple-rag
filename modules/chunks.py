@@ -1,7 +1,11 @@
 import json
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-def create_chunks(corpus: list[dict], chunk_size=1000, chunk_overlap=150) -> list:
+def create_chunks(
+    corpus: list[dict],
+    chunk_size: int = 500,
+    chunk_overlap: int = 75
+) -> list:
     """Splits the extracted text into smaller chunks suitable for embedding and retrieval."""
 
     text_splitter = RecursiveCharacterTextSplitter(
