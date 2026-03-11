@@ -67,7 +67,8 @@ Answer:
 
 ## Test Questions
 
-* Question 1: What is the last date to submit the project?
-* Question 2: What are the project submission guidelines?
-* Question 3: What are the project evaluation criteria?
-* Question 4: What are the python libraries recommended for the project?
+* What is the last date to submit the project?
+* What are the project submission guidelines?
+* What are the project evaluation criteria?
+* What are the python libraries recommended for the project?
+* In brief, explain the training dataset used for this project.
